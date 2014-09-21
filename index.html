@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Relative Frequency Demonstration</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Relative Frequency Demonstration">
+  <meta name="author" content="Stephanie Holcomb">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Relative Frequency Demonstration</h1>
+    <h2>Developing Data Products - September 2014</h2>
+    <p>Stephanie Holcomb<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Relative Frequency</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This application provides an interactive demonstration of the relationship between relative frequency and probability of an event. </p>
+
+<p>Rolling a dice is considered a &#39;Bernoulli trial&#39; in which there are only two outcomes.  Either you roll a &#39;3&#39; or you don&#39;t.  When a fair dice is rolled, the probability of rolling a &#39;3&#39; is 1/6.  Rolling a dice 1, 10, or 20 times may result in a frequency far greater or less than 1/6.  </p>
+
+<p>According to the Law of Large Numbers, however, if we tossed the dice 100, 1000, or 10,000 times, and so on, we would observe that the proportion of &#39;3&#39;s would eventually come close to the true probability of ~.167. </p>
+
+<p>This is important because it guarantees stable results for some random events over the long term when a large number of observations are taken into account.  </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>The Application Console:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/img/shinyAppScreenshot.jpg" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>How the Application Works:</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The user inputs a number between 1 and 6 to represent one side of the dice.  They then enter a number of rolls between 1 and 10,000.
+Once the user hits the &quot;Roll the Dice&quot; button, the R script takes the user input and simulates up to 10,000 dice rolls, saving the results for all rolls in a single vector.
+Once all rolls are complete, the code loops through and calculates the cumulative frequency of rolls that resulted in a value that matched the user input. </p>
+
+<p>For example, if the user chose the number 3 and 100 rolls, the code would simulate 100 rolls of the dice, then loop through and calculate the cumulative frequency for all 100 rolls, resulting in another vector of 100 frequency values.  </p>
+
+<p>It is these frequency values that are used to generate the plot. 
+The resulting graph, on the next slide, shows that, as the number of rolls increases, the relative frequency approaches the true probability (represented by the gray line).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h3>The Resulting Graph</h3>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">plot(dFreq*100,type=&quot;l&quot;,col=&quot;blue&quot;,lwd=2,ylim=c(0,100),
+            xlab=&quot;# rolls&quot;, ylab=&quot;Frequency (%)&quot;)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<pre><code>## Error: plot.new has not been called yet
+</code></pre>
+
+<hr>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Relative Frequency'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The Application Console:'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How the Application Works:'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The Resulting Graph'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
