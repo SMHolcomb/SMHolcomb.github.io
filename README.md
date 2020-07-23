@@ -1,4 +1,4 @@
-DevelopingDataProducts_SlidifyDocumentation
+CS498 Data Visualization 
 ===========================================
 
-Developing Data Products Slidify Presentation
+Final Project for CS498 Data Visualization at UIUC
